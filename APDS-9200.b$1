@@ -660,7 +660,9 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="APDS-1" library="CalvEngIO-Sensors" package="APDS-9200" value="APDS-9200" x="7.84225" y="3.3655" smashed="yes" rot="R270"/>
+<element name="APDS-1" library="CalvEngIO-Sensors" package="APDS-9200" value="APDS-9200" x="7.84225" y="3.3655" smashed="yes" rot="R270">
+<attribute name="VALUE" x="5.44775" y="0.5405" size="0.508" layer="27"/>
+</element>
 <element name="C1" library="CalvEngIO-Passives" package="C0402" value="1uF" x="9.271" y="5.74675" smashed="yes" rot="R90">
 <attribute name="NAME" x="9.906" y="5.42925" size="0.508" layer="25" rot="R90" align="top-center"/>
 </element>
