@@ -971,6 +971,21 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 <vertex x="0.8866" y="-0.23263125"/>
 </polygon>
 </package>
+<package name="CALVENGIO_HANDLE.025">
+<text x="-2.54" y="0" size="0.635" layer="21" font="vector" ratio="15">@CalvEngIO</text>
+</package>
+<package name="CALVENGIO_HANDLE.1">
+<text x="-10.16" y="-1.27" size="2.54" layer="21" font="vector" ratio="15">@CalvEngIO</text>
+</package>
+<package name="CALVENGIO_HANDLE.05">
+<text x="-5.08" y="0" size="1.27" layer="21" font="vector" ratio="15">@CalvEngIO</text>
+</package>
+<package name="CALVENGIO_HANDLE.075">
+<text x="-7.62" y="0" size="1.905" layer="21" font="vector" ratio="15">@CalvEngIO</text>
+</package>
+<package name="CALVENGIO_HANDLE.08">
+<text x="-8.382" y="-1.27" size="2.032" layer="21" font="vector" ratio="15">@CalvEngIO</text>
+</package>
 </packages>
 <symbols>
 <symbol name="OSHW-LOGO">
@@ -4530,6 +4545,9 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 <vertex x="0.6834" y="-1.65"/>
 </polygon>
 </symbol>
+<symbol name="CALVENGIO_HANDLE.15">
+<text x="0" y="0" size="3.81" layer="90" font="vector" ratio="15">@CalvEngIO</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="OSHW-LOGO" prefix="LOGO">
@@ -4576,6 +4594,38 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="CALVENGIO_HANDLE">
+<gates>
+<gate name="G$1" symbol="CALVENGIO_HANDLE.15" x="0" y="0"/>
+</gates>
+<devices>
+<device name="HANDLE.025" package="CALVENGIO_HANDLE.025">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="HANDLE.1" package="CALVENGIO_HANDLE.1">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="HANDLE.05" package="CALVENGIO_HANDLE.05">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="HANDLE.075" package="CALVENGIO_HANDLE.075">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="HANDLE.08" package="CALVENGIO_HANDLE.08">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -4596,6 +4646,7 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 <part name="R2" library="CalvEngIO-Passives" deviceset="RESISTOR" device="0402"/>
 <part name="R3" library="CalvEngIO-Passives" deviceset="RESISTOR" device="0402"/>
 <part name="LOGO1" library="CalvEngIO-Logos" deviceset="OSHW-LOGO" device="MINI"/>
+<part name="U$1" library="CalvEngIO-Logos" deviceset="CALVENGIO_HANDLE" device="HANDLE.025"/>
 </parts>
 <sheets>
 <sheet>
@@ -4625,7 +4676,8 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 <attribute name="NAME" x="82.3214" y="26.67" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="87.122" y="26.67" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="LOGO1" gate="G$1" x="43.18" y="66.04"/>
+<instance part="LOGO1" gate="G$1" x="38.1" y="63.5"/>
+<instance part="U$1" gate="G$1" x="53.34" y="60.96"/>
 </instances>
 <busses>
 </busses>
