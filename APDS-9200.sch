@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.2.1">
+<eagle version="8.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -214,7 +214,7 @@
 </library>
 <library name="CalvEngIO-Connectors">
 <packages>
-<package name="1X03">
+<package name="1X03@1">
 <description>&lt;h3&gt;Plated Through Hole - 3 Pin&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count:3&lt;/li&gt;
@@ -275,7 +275,7 @@
 <gate name="G$1" symbol="JMP-03" x="5.08" y="-5.08"/>
 </gates>
 <devices>
-<device name="" package="1X03">
+<device name="" package="1X03@1">
 <connects>
 <connect gate="G$1" pin="2" pad="1"/>
 <connect gate="G$1" pin="3" pad="2"/>

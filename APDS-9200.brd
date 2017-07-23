@@ -227,7 +227,7 @@ Rev A</text>
 </library>
 <library name="CalvEngIO-Connectors">
 <packages>
-<package name="1X03">
+<package name="1X03@1">
 <description>&lt;h3&gt;Plated Through Hole - 3 Pin&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count:3&lt;/li&gt;
@@ -660,8 +660,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C1" library="CalvEngIO-Passives" package="C0402" value="1uF" x="9.271" y="5.74675" smashed="yes" rot="R90">
 <attribute name="NAME" x="9.27075" y="7.006" size="0.508" layer="25" rot="R180" align="top-center"/>
 </element>
-<element name="JMP1" library="CalvEngIO-Connectors" package="1X03" value="JMP-03" x="13.97" y="1.27" smashed="yes" rot="R90"/>
-<element name="JMP2" library="CalvEngIO-Connectors" package="1X03" value="JMP-03" x="1.27" y="1.27" smashed="yes" rot="R90"/>
+<element name="JMP1" library="CalvEngIO-Connectors" package="1X03@1" value="JMP-03" x="13.97" y="1.27" smashed="yes" rot="R90"/>
+<element name="JMP2" library="CalvEngIO-Connectors" package="1X03@1" value="JMP-03" x="1.27" y="1.27" smashed="yes" rot="R90"/>
 <element name="R1" library="CalvEngIO-Passives" package="R0402" value="10k" x="7.62" y="5.74675" smashed="yes" rot="R270"/>
 <element name="R2" library="CalvEngIO-Passives" package="R0402" value="10k" x="9.55675" y="2.286" smashed="yes" rot="R270"/>
 <element name="R3" library="CalvEngIO-Passives" package="R0402" value="10k" x="5.969" y="5.74675" smashed="yes" rot="R270"/>
