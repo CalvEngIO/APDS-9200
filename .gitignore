@@ -1,6 +1,6 @@
 #Ignoring all files in PCB_Designs directory except for .lbr files
 #This is done specifically to autosave files
-/*
+/Hardware/*
 !*.sch
 !*.brd
 
