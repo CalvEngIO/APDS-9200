@@ -132,39 +132,35 @@
 		// a function take an input number of getings all in a row.
 		// (not sure how to return that data in a clean format)
 		
+        void enableLight();
+        void enableUV();
+		void standby();
+		
 		long getLight();
 		long getUV();
-		void standby();
-     
-        void enableLight() const;
-        void enableUV() const;
 		
 		long getLightUnfiltered();
 		long getUVUnfiltered();
 		
-		bool setInterruptPersistence(int numgetings);
-		
-		// Threshold Interrupt
-		void setLightInterrupt(long upper, long lower);
-		void setLightInterruptUpper(long upper);
-		void setLightInterruptLower(long lower);
 		void enableLightInterrupt();
 		void disableLightInterrupt();
-		
-		void setUVInterrupt(long upper, long lower);
-		void setUVInterruptUpper(long upper);
-		void setUVInterruptLower(long lower);
 		void enableUVInterrupt();
 		void disableUVInterrupt();
 		
+		bool setInterruptPersistence(int numgetings);
+		
+		// Threshold Interrupt
+		bool setInterruptThresh(long lower, long upper);
+		bool setInterruptThreshUpper(long upper);
+		bool setInterruptThreshLower(long lower);
+		
 		// Variance Interrupt
-		void setLightInterruptVar(int var);
 		void enableLightInterruptVar();
 		void disableLightInterruptVar();
-		
-		void setUVInterruptVar(int var);
 		void enableUVInterruptVar();
 		void disableUVInterruptVar();
+		
+		bool setInterruptVar(int var);
 		
 		// Higher Level Functions
 		int getUVIndex();

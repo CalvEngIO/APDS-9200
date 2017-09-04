@@ -67,7 +67,7 @@
  // Functions Dealing with Light Sensing
  //--------------------------------------------------------------------------------------------
  
-void APDS9200::enableLight() const
+void APDS9200::enableLight()
 {
     // Enable and set chip to read UV Light
     Wire.beginTransmission(APDS9200_ADDRESS);
@@ -76,8 +76,7 @@ void APDS9200::enableLight() const
     Wire.endTransmission();
 }
 
-
-void APDS9200::enableUV() const
+void APDS9200::enableUV()
 {
     // Enable and set chip to read UV Light
     Wire.beginTransmission(APDS9200_ADDRESS);
@@ -103,6 +102,8 @@ void APDS9200::enableUV() const
  //Reads a single ambint light measurement raw value (filtered by chip logic)
  long APDS9200::getLight()
  {
+  /* Still to come: Error check for correct mode enabled
+	 
 	 // Reads chip mode to assure it is in the correct mode
 	 // If incorrect mode is detected, returns zero
 	 Wire.beginTransmission(APDS9200_ADDRESS);
@@ -110,11 +111,11 @@ void APDS9200::enableUV() const
 	 Wire.endTransmission();
 	 
 	 Wire.requestFrom(APDS9200_ADDRESS, 1);
-	 long chipMode = Wire.read();
+	 long chipMode = Wire.read();	 
 	 
-	 if (chipMode & 0x02 != 0) //ERROR, Not in ambient light mode or not enabled
+	 if ((chipMode & 0x02) != 0) //ERROR, Not in ambient light mode or not enabled
 		 return 0;
-	 
+  */	 
 	// FIXME Do I need a wait time for it to take a measuerment????
 	// Most important if the chip was just enables/switched modes???
 	// Note: Default measurement rate is 100 ms, goes up to 2000 ms
@@ -134,6 +135,7 @@ void APDS9200::enableUV() const
 		 return 0;
 	 
 	 //Wire.endTransmission();
+	 
 	 return light;
 	 
 	 /* according to datasheet, transmission should go as follows:
@@ -146,6 +148,8 @@ void APDS9200::enableUV() const
  //Reads a single UV light measurement raw value (filtered by chip logic)
  long APDS9200::getUV()
  {
+  /* Still to come: Error check for correct mode enabled
+	 
 	 // Reads chip mode to assure it is in the correct mode
 	 // If incorrect mode is detected, returns zero
 	 Wire.beginTransmission(APDS9200_ADDRESS);
@@ -155,12 +159,12 @@ void APDS9200::enableUV() const
 	 Wire.requestFrom(APDS9200_ADDRESS, 1);
 	 long chipMode = Wire.read();
 	 
-	 if (chipMode & 0x0A != 0) //ERROR, Not in UV light mode or not enabled
+	 if ((chipMode & 0x0A) != 0) //ERROR, Not in UV light mode or not enabled
 		 return 0;
 	 
 	// FIXME Do I need a wait time for it to take measurements????
 	// Note: Default measurement rate is 100 ms, goes up to 2000 ms
-	
+  */
 	// Reads UV Light value
 	 Wire.beginTransmission(APDS9200_ADDRESS);
 	 Wire.write(APDS9200_REGISTER_UVS_DATA_0);
@@ -187,6 +191,7 @@ void APDS9200::enableUV() const
  //back into the read value.
  long APDS9200::getLightUnfiltered()
  {
+  /* Still to come: Error check for correct mode enabled
 	 // Reads chip mode to assure it is in the correct mode
 	 // If incorrect mode is detected, returns zero
 	 Wire.beginTransmission(APDS9200_ADDRESS);
@@ -196,9 +201,9 @@ void APDS9200::enableUV() const
 	 Wire.requestFrom(APDS9200_ADDRESS, 1);
 	 long chipMode = Wire.read();
 	 
-	 if (chipMode & 0x02 != 0) //ERROR, Not in ambient light mode or not enabled
+	 if ((chipMode & 0x02) != 0) //ERROR, Not in ambient light mode or not enabled
 		 return 0;
-	 
+  */
 	// FIXME Do I need a wait time????
 	// Note: Default measurement rate is 100 ms, goes up to 2000 ms
 		
@@ -243,6 +248,8 @@ void APDS9200::enableUV() const
  //back into the read value.
  long APDS9200::getUVUnfiltered()
  {
+  /* Still to come: Error check for correct mode enabled
+  
 	 // Reads chip mode to assure it is in the correct mode
 	 // If incorrect mode is detected, returns zero
 	 Wire.beginTransmission(APDS9200_ADDRESS);
@@ -252,9 +259,9 @@ void APDS9200::enableUV() const
 	 Wire.requestFrom(APDS9200_ADDRESS, 1);
 	 long chipMode = Wire.read();
 	 
-	 if (chipMode & 0x0A != 0) //ERROR, Not in UV light mode or not enabled
+	 if ((chipMode & 0x0A) != 0) //ERROR, Not in UV light mode or not enabled
 		 return 0;
-	 
+  */
 	// FIXME Do I need a wait time????
 	// Note: Default measurement rate is 100 ms, goes up to 2000 ms
 	
@@ -336,7 +343,7 @@ void APDS9200::enableUV() const
  // and every 2nd consecutive out of range value asserts an interrupt.
  //Default Persistence is Zero
  //  (every value out of range asserts an interrupt)
- boolean setInterruptPersistence(int numReadings)
+ bool setInterruptPersistence(int numReadings)
  {	 
 	 if (numReadings < 16 && numReadings >= 0)
 	 {	 
@@ -357,7 +364,7 @@ void APDS9200::enableUV() const
  //must be set and enabled or disabled separately with above functions
  //This function sets the upper and lower thersholds that define
  //what values will trigger the interrupt pin to be asserted.
- boolean APDS9200::setInterruptThresh(long upper, long lower)
+ bool APDS9200::setInterruptThresh(long lower, long upper)
  {
 	 //Check that valid limits were requested
 	 if ((upper > 1048575) || (lower < 0))
@@ -377,8 +384,8 @@ void APDS9200::enableUV() const
 	 Wire.write(UITB);
 	 Wire.write(UMSB);
 	 Wire.write(LLSB);
-	 Wire.write(LLSB);
-	 Wire.write(LLSB);
+	 Wire.write(LITB);
+	 Wire.write(LMSB);
 	 Wire.endTransmission();
 
 	 return 1;
@@ -420,7 +427,7 @@ void APDS9200::enableUV() const
  //This function sets the lower thersholds that define
  //what values will trigger the interrupt pin to be asserted.
  //The upper threshold is set to the max value.
- boolean APDS9200::setInterruptThreshLower(long lower)
+ bool APDS9200::setInterruptThreshLower(long lower)
  {
 	 //Check that valid limits were requested
 	 if (lower < 0)
@@ -507,7 +514,7 @@ void APDS9200::enableUV() const
  //  011: if data varries by 64 counts compared to previous result
  //  111: if data varries by 1024 counts compared to previous result
  
- boolean APDS9200::setLightInterruptVar(int var)
+ bool APDS9200::setInterruptVar(int var)
  {
 	 if ((var > 1024) || (var < 0))
 		 return 0;

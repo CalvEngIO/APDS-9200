@@ -14,16 +14,18 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   delay(500);
-  Serial.print("UV Light:\t");
+  Serial.print("UV Light (Filter vs Unfilter:\t");
   light.enableUV();
   delay(100);
   Serial.print( light.getUV() );
-  Serial.print("\t\t");
+  Serial.print("\t");
+  Serial.println(light.getUVUnfiltered() );
 
-  Serial.print("Light:  ");
+  Serial.print("Light (Filter vs Unfilter):  ");
   light.enableLight();
   delay(100);
-  Serial.println( light.getLight());
-  Serial.println("a whole new world!");
-
+  Serial.print( light.getLight());
+  Serial.print("\t");
+  Serial.println( light.getLightUnfiltered() );
+  Serial.println();
 }
